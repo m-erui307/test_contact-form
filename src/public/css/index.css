@@ -1,0 +1,123 @@
+.header {
+    background: #fff;
+}
+
+.header__inner {
+    margin: 0 auto;
+    padding: 20px 15px;
+    max-width: 1230px;
+    border-bottom: solid 2px #f5f5f5;
+}
+
+.header__logo {
+    color: #726250;
+    font-weight: bold;
+    font-size: 24px;
+    font-family: 'Playfair Display', "游明朝", sans-serif;
+}
+
+.contact-form__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+}
+
+.contact-form__heading {
+    margin-bottom: 40px;
+    text-align: center;
+    color: #726250;
+}
+
+.form {
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+}
+
+.form__group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: #726250;
+}
+
+.form__label--required {
+    margin-left: 5px;
+    color: #ff0000;
+}
+
+.form__error {
+    height: 20px;
+    color: #ff0000;
+    text-align: left;
+}
+
+.form__input--name input {
+    padding: 10px;
+    width: 250px;
+    background-color: #f5f5f5;
+    border: none;
+    
+    appearance: none;
+}
+
+.form__input--gender {
+    margin-left: 10px;
+}
+
+.form__input--tel {
+    display: flex;
+    padding: 10px;
+    width: 150px;
+    background-color: #f5f5f5;
+    border: none;
+    
+    appearance: none;
+}
+
+.form__input--select {
+    padding: 10px;
+    width: 300px;
+    background-color: #f5f5f5;
+    border: none;
+}
+
+
+.form__input--text input,
+.form__input--textarea textarea {
+    padding: 10px;
+    width: 600px;
+    background-color: #f5f5f5;
+    border: none;
+
+    appearance: none;
+}
+
+.form__input--name input,
+.form__input--gender input,
+.form__input--tel input,
+.form__input--select input,
+.form__input--text input {
+    height: 40px;
+    color: #726250;
+}
+
+.form__input--textarea textarea {
+    height: 180px;
+    color: #726250;
+}
+
+.form__button {
+    margin-top: 30px;
+}
+
+.form__button-submit {
+    padding: 10px;
+    width: 30%;
+    height: 50px;
+    border: none;
+    border-radius: 3px;
+    background: #726250;
+    color: #fff;
+    cursor: pointer;
+}
