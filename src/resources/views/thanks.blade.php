@@ -16,6 +16,13 @@
       <a class="header__logo" href="/">
         Fashionably Late
       </a>
+      <nav>
+        <ul class="header-nav">
+          <li class="header-nav__item">
+            <a class="header-nav__link" href="/">HOME</a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </header>
 

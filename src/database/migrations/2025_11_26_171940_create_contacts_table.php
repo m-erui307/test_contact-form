@@ -17,12 +17,12 @@ class CreateContactsTable extends Migration
             $table->id();
             $table->string('last_name');
             $table->string('first_name');
-            $table->integer('gender');
+            $table->tinyInteger('gender')->comment('1:男性, 2:女性, 3:その他');
             $table->string('email');
             $table->string('tel');
             $table->string('address');
             $table->string('building')->nullable();
-            $table->string('detail');
+            $table->text('detail');
             $table->timestamps();
         });
     }
