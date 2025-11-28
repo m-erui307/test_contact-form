@@ -1,12 +1,32 @@
+.header {
+    background: #fff;
+}
+
+.header__inner {
+    margin: 0 auto;
+    padding: 20px 15px;
+    max-width: 1230px;
+    border-bottom: solid 2px #f5f5f5;
+}
+
+.header__logo {
+    color: #726250;
+    font-weight: bold;
+    font-size: 24px;
+    font-family: 'Playfair Display', "游明朝", sans-serif;
+}
+
 .login-form__content {
     margin: 0 auto;
     padding: 30px 15px;
     max-width: 1230px;
+    background-color: #e9e4d4;
 }
 
 .login-form__heading {
     margin-bottom: 20px;
     text-align: center;
+    color: #726250;
 }
 
 .form {
@@ -21,6 +41,7 @@
 
 .form__group-title {
     text-align: left;
+    color: #726250;
 }
 
 .form__error {
@@ -33,7 +54,8 @@
     padding: 10px;
     width: 100%;
     height: 40px;
-    border: 1px solid #ddd;
+    background-color: #f5f5f5;
+    border: none;
     border-radius: 3px;
 
     appearance: none;
@@ -49,7 +71,7 @@
     height: 50px;
     border: none;
     border-radius: 3px;
-    background: #000;
+    background: #726250;
     color: #fff;
     cursor: pointer;
 }

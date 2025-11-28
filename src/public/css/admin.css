@@ -1,0 +1,19 @@
+.admin__content {
+    margin: 0 auto;
+    padding: 60px 15px;
+    padding: 30px 15px;
+    max-width: 1230px;
+}
+
+.search-form {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    width: 70%;
+    text-align: center;
+}
+
+.search-form__item {
+    display: flex;
+}
