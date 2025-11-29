@@ -35,14 +35,20 @@
       <div class="admin__heading">
         <h2>Admin</h2>
       </div>
-      <form class="search-form">
+      <form class="search-form" action="/contacts/search" method="get">
         <div class="search-form__item">
-          <input class="search-form__item-name" type="text" />
-          <select class="search-form__item-gender">
+          <input class="search-form__item-name" type="text" name="keyword" value="{{ old('keyword') }}">
+          <select class="search-form__item-gender" name="gender">
             <option value="">性別</option>
+            @foreach ($contacts as $contact)
+            <option value="{{ $contact['gender'] }}">{{ $contact['gender'] }}</option>
+            @endforeach
           </select>
-          <select class="search-form__item-content">
+          <select class="search-form__item-content" name="category_id">
             <option value="">お問い合わせの種類</option>
+            @foreach ($contacts as $contact)
+            <option value="{{ $contact['category_id'] }}">{{ $contact['category_id'] }}</option>
+            @endforeach
           </select>
           <select class="search-form__item-date">
             <option value="">年/月/日</option>
@@ -62,20 +68,21 @@
               <span class="admin-table__header-content">お問い合わせの種類</span>
             </th>
           </tr>
+          @foreach ($contacts as $contact)
           <tr class="admin-table__row">
             <td class="admin-table__item">
               <form class="info-form" action="/" method="POST">
                 <div class="info-form__item">
-                  <p class="info-form__item-name">山田 太郎</p>
+                  <p class="info-form__item-name">{{ $contact['last_name'] }}{{ $contact['first_name'] }}</p>
                 </div>
                 <div class="info-form__item">
-                  <p class="info-form__item-gender">男性</p>
+                  <p class="info-form__item-gender">{{ $contact['gender'] }}</p>
                 </div>
                 <div class="info-form__item">
-                  <p class="info-form__item-email">test@example.com</p>
+                  <p class="info-form__item-email">{{ $contact['email'] }}</p>
                 </div>
                 <div class="info-form__item">
-                  <p class="info-form__item-content">商品の交換について</p>
+                  <p class="info-form__item-content">{{ $contact->category->content }}</p>
                 </div>
                 <div class="info-form__item">
                   <p class="info-form__item-x">詳細</p>
@@ -83,6 +90,7 @@
               </form>
             </td>
           </tr>
+          @endforeach
         </table>
       </div>
     </div>

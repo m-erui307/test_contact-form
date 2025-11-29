@@ -140,7 +140,8 @@
             <span class="form__label--required">※</span>
           </div>
           <div class="form__group-content">
-            <select class="form__input--select" name="content" placeholder="選択してください">
+            <select class="form__input--select" name="category_id" >
+              <option value="">選択してください</option>
               <option value="1">1.商品のお届けについて</option>
               <option value="2">2.商品の交換について</option>
               <option value="3">3.商品トラブル</option>
@@ -148,7 +149,7 @@
               <option value="5">5.その他</option>
             </select>
             <div class="form__error">
-              @error('content')
+              @error('category_id')
                 {{ $message }}
               @enderror
             </div>
