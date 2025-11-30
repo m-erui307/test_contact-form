@@ -17,3 +17,61 @@
 .search-form__item {
     display: flex;
 }
+
+.pagination-wrapper {
+    display: flex;
+    justify-content: right;
+    /* ページネーションを中央揃え */
+    margin: 20px 0;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination li {
+    margin: 0;
+    /* 隙間を完全になくす */
+}
+
+.pagination li a,
+.pagination li span {
+    display: block;
+    padding: 6px 12px;
+    margin: 0;
+    /* 隙間なし */
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    min-width: 36px;
+    text-align: center;
+}
+
+.pagination li a:hover {
+    background-color: #f0f0f0;
+}
+
+.pagination li.active span {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+.pagination li.disabled span {
+    color: #ccc;
+    cursor: default;
+}
+
+/* 前・次を < > に変更 */
+.pagination li:first-child a,
+.pagination li:first-child span {
+    content: "<";
+}
+
+.pagination li:last-child a,
+.pagination li:last-child span {
+    content: ">";
+}

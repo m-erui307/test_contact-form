@@ -40,24 +40,28 @@
           <input class="search-form__item-name" type="text" name="keyword" value="{{ old('keyword') }}">
           <select class="search-form__item-gender" name="gender">
             <option value="">性別</option>
-            @foreach ($contacts as $contact)
-            <option value="{{ $contact['gender'] }}">{{ $contact['gender'] }}</option>
-            @endforeach
+            <option value="1" @selected(request('gender') == '1')>男性</option>
+            <option value="2" @selected(request('gender') == '2')>女性</option>
+            <option value="3" @selected(request('gender') == '3')>その他</option>
           </select>
           <select class="search-form__item-content" name="category_id">
             <option value="">お問い合わせの種類</option>
-            @foreach ($contacts as $contact)
-            <option value="{{ $contact['category_id'] }}">{{ $contact['category_id'] }}</option>
+            @foreach ($categories as $category)
+              <option value="{{ $category->id }}" @selected(request('category_id') == $category)>
+              {{ $category->content }}
+              </option>
             @endforeach
           </select>
-          <select class="search-form__item-date">
-            <option value="">年/月/日</option>
-          </select>
+            <input class="search-form__item-date" type="date" name="date" value="{{ request('date') }}">
         </div>
         <div class="search-form__button">
           <button class="search-form__button-submit" type="submit">検索</button>
+          <a href="/admin" class="search-form__button-reset">リセット</a>
         </div>
       </form>
+      <div class="pagination-wrapper">
+        {{ $contacts->links('pagination::bootstrap-4') }}
+      </div>
       <div class="admin-table">
         <table class="admin-table__inner">
           <tr class="admin-table__row">
@@ -85,7 +89,29 @@
                   <p class="info-form__item-content">{{ $contact->category->content }}</p>
                 </div>
                 <div class="info-form__item">
-                  <p class="info-form__item-x">詳細</p>
+                  <form method="dialog">
+                    <button type="button" onclick="this.nextElementSibling.showModal()">詳細</button>
+                  </form>
+                  <dialog class="contact-modal">
+                    <form method="dialog" class="modal-close-form">
+                      <button class="modal-close-btn">&times;</button>
+                    </form>
+                    <p><strong>お名前:</strong> {{ $contact['last_name'] }}{{ $contact['first_name'] }}</p>
+                    <p><strong>性別:</strong>
+                    {{ $contact['gender'] == 1 ? '男性' : ($contact['gender'] == 2 ? '女性' : 'その他') }}
+                    </p>
+                    <p><strong>メールアドレス:</strong> {{ $contact['email'] }}</p>
+                    <p><strong>電話番号:</strong> {{ is_array($contact['tel']) ? implode('-', $contact['tel']) : $contact['tel'] }}</p>
+                    <p><strong>住所:</strong> {{ $contact['address'] }}</p>
+                    <p><strong>建物名:</strong> {{ $contact['building'] }}</p>
+                    <p><strong>お問い合わせの種類:</strong> {{ $contact->category->content }}</p>
+                    <p><strong>お問い合わせ内容:</strong> {{ $contact['detail'] }}</p>
+                      <form action="{{ route('contacts.destroy', $contact->id) }}" method="post" class="modal-delete-form">
+                      @csrf
+                      @method('DELETE')
+                        <button type="submit" class="modal-delete-btn">削除</button>
+                      </form>
+                  </dialog>
                 </div>
               </form>
             </td>
@@ -96,3 +122,5 @@
     </div>
   </main>
 </body>
+
+</html>

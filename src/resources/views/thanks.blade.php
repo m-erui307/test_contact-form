@@ -11,27 +11,15 @@
 </head>
 
 <body>
-  <header class="header">
-    <div class="header__inner">
-      <a class="header__logo" href="/">
-        Fashionably Late
-      </a>
-      <nav>
-        <ul class="header-nav">
-          <li class="header-nav__item">
-            <a class="header-nav__link" href="/">HOME</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
   <main>
     <div class="thanks__content">
-      <div class="thanks__heading">
-        <h2>お問い合わせありがとうございます</h2>
-      </div>
-    </div>
+      <p class="thanks__content-message">
+        お問い合わせありがとうございました
+      </p>
+      <div class="thanks__content-button">
+        <a class="home__button" href="/">
+          HOME
+        </a>
   </main>
 </body>
 

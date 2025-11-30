@@ -17,16 +17,6 @@
         Fashionably Late
       </h1>
     </div>
-    <nav>
-          <ul class="header-nav">
-            <li class="header-nav__item">
-              <form class="form" action="/logout" method="post">
-                @csrf
-                <button class="header-nav__button">ログアウト</button>
-              </form>
-            </li>
-          </ul>
-        </nav>
   </header>
 
   <main>

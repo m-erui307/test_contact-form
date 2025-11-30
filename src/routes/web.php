@@ -34,3 +34,4 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/contacts/search', [ContactController::class, 'search']);
+Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('contacts.destroy');
