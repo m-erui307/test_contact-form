@@ -37,7 +37,7 @@
       </div>
       <form class="search-form" action="/contacts/search" method="get">
         <div class="search-form__item">
-          <input class="search-form__item-name" type="text" name="keyword" value="{{ old('keyword') }}">
+          <input class="search-form__item-name" type="text" name="keyword" placeholder="名前やメールアドレスを入力してください" value="{{ old('keyword') }}">
           <select class="search-form__item-gender" name="gender">
             <option value="">性別</option>
             <option value="1" @selected(request('gender') == '1')>男性</option>
@@ -75,46 +75,31 @@
           @foreach ($contacts as $contact)
           <tr class="admin-table__row">
             <td class="admin-table__item">
-              <form class="info-form" action="/" method="POST">
-                <div class="info-form__item">
-                  <p class="info-form__item-name">{{ $contact['last_name'] }}{{ $contact['first_name'] }}</p>
-                </div>
-                <div class="info-form__item">
-                  <p class="info-form__item-gender">{{ $contact['gender'] }}</p>
-                </div>
-                <div class="info-form__item">
-                  <p class="info-form__item-email">{{ $contact['email'] }}</p>
-                </div>
-                <div class="info-form__item">
-                  <p class="info-form__item-content">{{ $contact->category->content }}</p>
-                </div>
-                <div class="info-form__item">
-                  <form method="dialog">
-                    <button type="button" onclick="this.nextElementSibling.showModal()">詳細</button>
-                  </form>
-                  <dialog class="contact-modal">
-                    <form method="dialog" class="modal-close-form">
-                      <button class="modal-close-btn">&times;</button>
-                    </form>
-                    <p><strong>お名前:</strong> {{ $contact['last_name'] }}{{ $contact['first_name'] }}</p>
-                    <p><strong>性別:</strong>
-                    {{ $contact['gender'] == 1 ? '男性' : ($contact['gender'] == 2 ? '女性' : 'その他') }}
-                    </p>
-                    <p><strong>メールアドレス:</strong> {{ $contact['email'] }}</p>
-                    <p><strong>電話番号:</strong> {{ is_array($contact['tel']) ? implode('-', $contact['tel']) : $contact['tel'] }}</p>
-                    <p><strong>住所:</strong> {{ $contact['address'] }}</p>
-                    <p><strong>建物名:</strong> {{ $contact['building'] }}</p>
-                    <p><strong>お問い合わせの種類:</strong> {{ $contact->category->content }}</p>
-                    <p><strong>お問い合わせ内容:</strong> {{ $contact['detail'] }}</p>
-                      <form action="{{ route('contacts.destroy', $contact->id) }}" method="post" class="modal-delete-form">
-                      @csrf
-                      @method('DELETE')
-                        <button type="submit" class="modal-delete-btn">削除</button>
-                      </form>
-                  </dialog>
-                </div>
-              </form>
-            </td>
+              <span class="info-form__item-name">{{ $contact['last_name'] }}{{ $contact['first_name'] }}</span>
+              <span class="info-form__item-gender">{{ $contact['gender'] == 1 ? '男性' : ($contact['gender'] == 2 ? '女性' : 'その他') }}</span>
+              <span class="info-form__item-email">{{ $contact['email'] }}</span>
+              <span class="info-form__item-content">{{ $contact->category->content }}</span>
+              <button class="detail-btn" type="button" onclick="this.nextElementSibling.showModal()">詳細</button>
+              <dialog class="contact-modal">
+                <form method="dialog" class="modal-close-form">
+                  <button class="modal-close-btn">&times;</button>
+                </form>
+                <p><strong>お名前:</strong> {{ $contact['last_name'] }}{{ $contact['first_name'] }}</p>
+                <p><strong>性別:</strong>{{ $contact['gender'] == 1 ? '男性' : ($contact['gender'] == 2 ? '女性' : 'その他') }}
+                </p>
+                <p><strong>メールアドレス:</strong> {{ $contact['email'] }}</p>
+                <p><strong>電話番号:</strong> {{ is_array($contact['tel']) ? implode('-', $contact['tel']) : $contact['tel'] }}</p>
+                <p><strong>住所:</strong> {{ $contact['address'] }}</p>
+                <p><strong>建物名:</strong> {{ $contact['building'] }}</p>
+                <p><strong>お問い合わせの種類:</strong> {{ $contact->category->content }}</p>
+                <p><strong>お問い合わせ内容:</strong> {{ $contact['detail'] }}</p>
+                <form action="{{ route('contacts.destroy', $contact->id) }}" method="post" class="modal-delete-form">
+                @csrf
+                @method('DELETE')
+                  <button type="submit" class="modal-delete-btn">削除</button>
+                </form>
+              </dialog>
+            </th>
           </tr>
           @endforeach
         </table>

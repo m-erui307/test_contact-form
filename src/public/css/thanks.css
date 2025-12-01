@@ -1,24 +1,42 @@
-.header__inner {
-    margin: 0 auto;
-    padding: 20px 15px;
-    max-width: 1230px;
-}
-
-.header__logo {
-    color: #726250;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 24px;
-}
-
 .thanks__content {
-    margin: 0 auto;
-    padding: 30px 15px;
     max-width: 1230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 20px;
 }
 
-.thanks__heading {
-    color: #726250;
-    margin-bottom: 40px;
-    text-align: center;
+.thanks__content::before {
+    content: "Thank you";
+    position: absolute;
+    font-size: 170px;
+    color: rgba(160, 120, 80, 0.10);
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.thanks__content-message {
+    color:#726250;
+    font-weight: bold;
+}
+
+.thanks__content-button {
+    border: none;
+    border-radius: 3px;
+    background: #726250;
+    cursor: pointer;
+}
+
+.home__button {
+    font-size: 12px;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    align-items: center;
 }

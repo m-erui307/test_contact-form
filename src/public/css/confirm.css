@@ -1,25 +1,25 @@
 .header__inner {
     margin: 0 auto;
-    padding: 20px 15px;
     max-width: 1230px;
-    border-bottom: solid 2px #f5f5f5;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 3px solid #f5f5f5;
 }
 
 .header__logo {
     color: #726250;
     text-decoration: none;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 28px;
+    margin: 0 0 15px 0;
 }
 
-.confirm__content {
-    margin: 0 auto;
-    padding: 30px 15px;
-    max-width: 1230px;
-}
 
-.confirm__heading {
+.contact-form__heading {
     color: #726250;
+    margin-top: 40px;
     margin-bottom: 40px;
     text-align: center;
 }
@@ -41,7 +41,7 @@
     padding: 15px;
     width: 20%;
     border-bottom: 1px solid #f5f5f5;
-    background-color: #726250;
+    background-color: #9d896c;
     color: #fff;
 }
 
@@ -63,17 +63,31 @@
 }
 
 .form__button {
-    margin-top: 30px;
+    margin-top: 50px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
 }
 
 .form__button-submit {
+    margin: 0;
     padding: 10px;
-    width: 30%;
-    height: 50px;
+    width: 10%;
+    height: 40px;
     border: none;
     border-radius: 3px;
-    background: #000;
+    background-color: #726250;
     color: #fff;
     cursor: pointer;
+    align-items: center;
+    font-size: 14px;
+}
+
+
+.form__button-correct {
+    display: flex;
+    margin: 0;
+    color: #726250;
 }

@@ -1,3 +1,33 @@
+.header__inner {
+    margin: 0 auto;
+    max-width: 1230px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 3px solid #f5f5f5;
+}
+
+.header__logo {
+    color: #726250;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 28px;
+    margin: 0 0 15px 0;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
+.admin__heading {
+    margin-bottom: 40px;
+    text-align: center;
+    color: #726250;
+}
+
 .admin__content {
     margin: 0 auto;
     padding: 60px 15px;
@@ -10,19 +40,30 @@
     justify-content: space-between;
     margin: 0 auto;
     margin-bottom: 15px;
-    width: 70%;
+    width: 80%;
     text-align: center;
+    color: #726250;
 }
 
 .search-form__item {
     display: flex;
+    gap: 20px;
+    width: 100%;
+    height: 40px;
+}
+
+.search-form__button-submit {
+    background-color: #726250;
+    color: #fff;
+    padding: 10px 10px;
+    border: none;
 }
 
 .pagination-wrapper {
     display: flex;
     justify-content: right;
-    /* ページネーションを中央揃え */
     margin: 20px 0;
+    margin-right: 70;
 }
 
 .pagination {
@@ -33,7 +74,6 @@
 
 .pagination li {
     margin: 0;
-    /* 隙間を完全になくす */
 }
 
 .pagination li a,
@@ -41,10 +81,9 @@
     display: block;
     padding: 6px 12px;
     margin: 0;
-    /* 隙間なし */
     border: 1px solid #ccc;
     text-decoration: none;
-    color: #333;
+    color: #726250;
     font-weight: bold;
     min-width: 36px;
     text-align: center;
@@ -55,17 +94,16 @@
 }
 
 .pagination li.active span {
-    background-color: #333;
+    background-color: #726250;
     color: #fff;
-    border-color: #333;
+    border-color: #726250;
 }
 
 .pagination li.disabled span {
-    color: #ccc;
+    color: #9d896c;
     cursor: default;
 }
 
-/* 前・次を < > に変更 */
 .pagination li:first-child a,
 .pagination li:first-child span {
     content: "<";
@@ -74,4 +112,129 @@
 .pagination li:last-child a,
 .pagination li:last-child span {
     content: ">";
+}
+
+
+.admin-table {
+    width: 95%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+
+.admin-table__inner th {
+    background-color: #726250;
+    padding: 12px 10px;
+    text-align: left;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+}
+
+
+.admin-table__header span {
+    display: inline-block;
+    padding-right: 20px;
+}
+
+
+.admin-table__header-name {
+    min-width: 180px;
+}
+
+.admin-table__header-gender {
+    min-width: 80px;
+}
+
+.admin-table__header-email {
+    min-width: 220px;
+}
+
+.admin-table__header-content {
+    min-width: 180px;
+}
+
+.admin-table__header-detail {
+    min-width: 100px;
+    text-align: right;
+}
+
+
+.admin-table__row td {
+    padding: 10px 10px;
+    border: 1px solid #eee;
+    vertical-align: middle;
+}
+
+
+.admin-table__item span {
+    display: inline-block;
+    padding-right: 20px;
+}
+
+
+.info-form__item-name {
+    min-width: 180px;
+}
+
+.info-form__item-gender {
+    min-width: 80px;
+}
+
+.info-form__item-email {
+    min-width: 220px;
+}
+
+.info-form__item-content {
+    min-width: 180px;
+}
+
+.detail-btn {
+    min-width: 100px;
+    float: right;
+    padding: 4px 8px;
+    color: #ccc;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+.contact-modal {
+    padding: 20px;
+    border: none;
+    border-radius: 6px;
+    width: 400px;
+    max-width: 90%;
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.modal-delete-btn {
+    margin-top: 10px;
+    padding: 6px 12px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.admin-table__item:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.search-form__button-reset {
+    text-decoration: none;
+    padding: 10px 10px;
+    border: none;
+    color: #fff;
+    background-color: #9d896c;
 }

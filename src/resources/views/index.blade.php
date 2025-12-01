@@ -14,7 +14,7 @@
   <header class="header">
     <div class="header__inner">
       <h1 class="header__logo">
-        Fashionably Late
+        FashionablyLate
       </h1>
     </div>
   </header>
@@ -33,8 +33,8 @@
           </div>
           <div class="form__group-content">
             <div class="form__input--name">
-              <input type="text" name="last_name" placeholder="例:山田" value="{{ old('last_name') }}" />
-              <input type="text" name="first_name" placeholder="例:太郎" value="{{ old('first_name') }}" />
+              <input type="text" name="last_name" placeholder="例:山田" value="{{ old('last_name', session('contact_input.last_name', '')) }}" />
+              <input type="text" name="first_name" placeholder="例:太郎" value="{{ old('first_name', session('contact_input.first_name', '')) }}" />
             </div>
             <div class="form__error">
               @error('last_name')
@@ -53,9 +53,9 @@
           </div>
           <div class="form__group-content">
             <div class="form__input--gender">
-              <input type="radio" name="gender" value="1">男性
-              <input type="radio" name="gender" value="2">女性
-              <input type="radio" name="gender" value="3">その他
+              <label><input type="radio" name="gender" value="1">男性</label>
+              <label><input type="radio" name="gender" value="2">女性</label>
+              <label><input type="radio" name="gender" value="3">その他</label>
             </div>
             <div class="form__error">
               @error('gender')
@@ -71,7 +71,7 @@
           </div>
           <div class="form__group-content">
             <div class="form__input--text">
-              <input type="email" name="email" placeholder="例:test@example.com" value="{{ old('email') }}" />
+              <input type="email" name="email" placeholder="例:test@example.com" value="{{ old('email', session('contact_input.email', '')) }}" />
             </div>
             <div class="form__error">
               @error('email')
@@ -105,7 +105,7 @@
           </div>
           <div class="form__group-content">
             <div class="form__input--text">
-              <input type="text" name="address" placeholder="例:東京都渋谷区千駄ヶ谷1-2-3" value="{{ old('address') }}" />
+              <input type="text" name="address" placeholder="例:東京都渋谷区千駄ヶ谷1-2-3" value="{{ old('address', session('contact_input.address', '')) }}" />
             </div>
             <div class="form__error">
               @error('address')
@@ -152,7 +152,7 @@
           </div>
           <div class="form__group-content">
             <div class="form__input--textarea">
-              <textarea name="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>
+              <textarea name="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail', session('contact_input.detail', '')) }}</textarea>
             </div>
             <div class="form__error">
               @error('detail')

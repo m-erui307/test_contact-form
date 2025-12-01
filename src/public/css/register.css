@@ -1,24 +1,36 @@
-.header {
-    background: #fff;
-}
-
 .header__inner {
     margin: 0 auto;
-    padding: 20px 15px;
     max-width: 1230px;
-    border-bottom: solid 2px #f5f5f5;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 3px solid #f5f5f5;
 }
 
 .header__logo {
     color: #726250;
+    text-decoration: none;
     font-weight: bold;
-    font-size: 24px;
-    font-family: 'Playfair Display', "游明朝", sans-serif;
+    font-size: 28px;
+    margin: 0 0 15px 0;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
 }
 
 .header-nav__item {
+    background-color: #e9e4d4;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
+.header-nav__link {
+    display: flex;
 }
 
 .register-form__content {
@@ -26,18 +38,24 @@
     padding: 30px 15px;
     max-width: 1230px;
     background-color: #e9e4d4;
+    margin-bottom: 80px;
 }
 
 .register-form__heading {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     text-align: center;
     color: #726250;
 }
 
 .form {
     margin: 0 auto;
-    width: 25%;
+    width: 50%;
     text-align: center;
+    border: 1px solid #9d896c;
+    padding: 30px 45px;
+    background-color: #fff;
+    border-radius: 3px;
+    margin-bottom: 50px;
 }
 
 .form__group {
@@ -47,6 +65,8 @@
 .form__group-title {
     text-align: left;
     color: #726250;
+    margin-bottom: 5px;
+    margin-left: 60px;
 }
 
 .form__error {
@@ -57,11 +77,12 @@
 
 .form__input--text input {
     padding: 10px;
-    width: 100%;
+    width: 75%;
     height: 40px;
     background-color: #f5f5f5;
     border: none;
     border-radius: 3px;
+    color: #9d896c;
 
     appearance: none;
 }
@@ -72,8 +93,8 @@
 
 .form__button-submit {
     padding: 10px;
-    width: 30%;
-    height: 50px;
+    width: 20%;
+    height: 40px;
     border: none;
     border-radius: 3px;
     background: #726250;
@@ -81,7 +102,3 @@
     cursor: pointer;
 }
 
-.login__link {
-    margin-top: 20px;
-    text-align: center;
-}

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +19,9 @@ use App\Http\Controllers\AuthController;
 
 
 
-Route::get('/', [ContactController::class, 'index']);
-
-Route::post('/contacts/confirm', [ContactController::class, 'confirm']);
-Route::post('/contacts', [ContactController::class, 'store']);
+Route::get('/', [ContactController::class, 'index'])->name('index');
+Route::post('/contacts/confirm', [ContactController::class, 'confirm'])->name('confirm');
+Route::post('/contacts', [ContactController::class, 'store'])->name('store');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
@@ -35,3 +36,9 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/contacts/search', [ContactController::class, 'search']);
 Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('contacts.destroy');
+
+Route::get('/register', [RegisterController::class, 'showForm'])->name('register.form');
+Route::post('/register', [RegisterController::class, 'register'])->name('register.submit');
+
+Route::get('/login', [LoginController::class, 'showForm'])->name('login.form');
+Route::post('/login', [LoginController::class, 'login'])->name('login');

@@ -19,6 +19,11 @@ class ContactController extends Controller
     {
         $contact = $request->only(['last_name', 'first_name', 'gender', 'email', 'tel', 'address', 'building', 'category_id', 'detail']);
 
+        $category = Category::find($contact['category_id']);
+        $contact['category_content'] = $category->content;
+
+        session(['contact_input' => $contact]);
+
         return view('confirm', compact('contact'));
     }
 
@@ -39,6 +44,8 @@ class ContactController extends Controller
         ];
 
         Contact::create($contact);
+
+        session()->forget('contact_input');
         return view('thanks');
     }
 
@@ -63,7 +70,7 @@ class ContactController extends Controller
         ->categorySearch($category_id)
         ->dateSearch($date)
         ->with('category')
-        ->simplePaginate(7)
+        ->paginate(7)
         ->appends($request->query());
 
     $categories = Category::all();
